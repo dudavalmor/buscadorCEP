@@ -1,139 +1,105 @@
-# 🔎 Buscador de CEP
+# 📦 Buscador de CEP - Java
 
-<p align="center">
-  Uma aplicação web simples e direta para consultar endereços brasileiros pelo CEP. <br />
-  Powered by <a href="https://viacep.com.br/">ViaCEP API</a>.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/feito%20com-JavaScript-yellow?style=flat-square"/>
-  <img src="https://img.shields.io/badge/API-ViaCEP-blue?style=flat-square"/>
-  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-orange?style=flat-square"/>
-</p>
+Aplicação simples desenvolvida em **Java** para consultar dados de endereço a partir de um CEP, utilizando a API pública do [ViaCEP](https://viacep.com.br/).
 
 ---
 
-## 🧭 Sobre o Projeto
+## 📌 Sobre o projeto
 
-O **Buscador de CEP** é uma aplicação front-end que permite ao usuário digitar um CEP e visualizar as informações de endereço correspondentes de forma rápida e limpa. A proposta é oferecer uma interface leve e acessível que consome a [API pública do ViaCEP](https://viacep.com.br/).
+Este é um programa de linha de comando em Java que faz uma requisição HTTP à API do ViaCEP e retorna informações como:
 
-> Ideal para estudos, integrações simples ou curiosidades geográficas.
+- Logradouro
+- Bairro
+- Localidade (Cidade)
+- UF (Estado)
 
----
-
-## 🖼️ Preview
-
-<img src="https://raw.githubusercontent.com/dudavalmor/buscadorCEP/main/assets/preview.png" alt="Preview da aplicação" width="500">
-
----
-
-## ⚙️ Funcionalidades
-
-✅ Busca de CEP em tempo real  
-✅ Exibição de logradouro, bairro, cidade e estado  
-✅ Validação básica para CEPs inválidos ou incompletos  
-✅ Interface 100% em HTML, CSS e JS puro (sem frameworks)
+Ideal para quem está aprendendo sobre consumo de APIs REST com Java e bibliotecas como `HttpURLConnection`, `Gson`, ou `HttpClient`.
 
 ---
 
-## 🚀 Como rodar localmente
+## 🎯 Funcionalidades
+
+✔ Consulta de endereço via CEP  
+✔ Tratamento de erros para CEP inválido  
+✔ Saída formatada no terminal  
+✔ Integração com API pública (sem necessidade de autenticação)
+
+---
+
+## 🛠 Tecnologias e Bibliotecas
+
+- **Java 11+**
+- **[ViaCEP API](https://viacep.com.br/)**
+- `java.net.HttpURLConnection` ou `java.net.http.HttpClient` (dependendo da versão usada)
+- `com.google.gson.Gson` para desserializar JSON (opcional)
+
+---
+
+## ▶️ Como executar
 
 1. Clone o repositório:
-
 ```bash
 git clone https://github.com/dudavalmor/buscadorCEP.git
-```
-
-2. Acesse a pasta:
-
-```bash
 cd buscadorCEP
 ```
 
-3. Abra o arquivo `index.html` diretamente no seu navegador:
-
+2. Compile o código:
 ```bash
-start index.html   # No Windows
-# ou
-open index.html    # No macOS
+javac Main.java
 ```
 
-> Você também pode usar uma extensão como “Live Server” no VS Code para rodar localmente com auto-reload.
+3. Execute a aplicação:
+```bash
+java Main
+```
+
+> O programa irá pedir para você digitar um CEP, fará a consulta e exibirá os dados no terminal.
 
 ---
 
-## 🌐 Deploy com GitHub Pages
+## 🧠 Exemplo de uso
 
-Se quiser hospedar seu fork online:
+```text
+Digite um CEP: 01001000
 
-1. Vá em `Settings` do repositório  
-2. Acesse a aba **Pages**  
-3. Em **Source**, selecione `main` e a pasta `/root`  
-4. Clique em **Save**  
-5. O GitHub vai gerar uma URL pública como:
-   ```
-   https://seu-usuario.github.io/buscadorCEP/
-   ```
-
----
-
-## 🧠 Tecnologias Utilizadas
-
-- **HTML5** – estrutura da página  
-- **CSS3** – estilização simples e funcional  
-- **JavaScript (Vanilla)** – lógica de busca e consumo da API  
-- **[ViaCEP API](https://viacep.com.br/)** – dados oficiais de CEP
+Resultado:
+Logradouro: Praça da Sé
+Bairro: Sé
+Cidade: São Paulo
+Estado: SP
+```
 
 ---
 
-## 📁 Estrutura
+## 📂 Estrutura do Projeto
 
 ```
 buscadorCEP/
-├── assets/
-│   └── style.css
-├── js/
-│   └── script.js
-├── index.html
-└── README.md
+├── Main.java         # Arquivo principal com a lógica de busca
+├── ViaCepResponse.java # (opcional) Classe para mapear resposta JSON
+├── utils/            # (opcional) Funções auxiliares
+└── README.md         # Este arquivo
 ```
 
 ---
 
-## 💡 Possíveis Melhorias
+## 💡 Melhorias futuras
 
-- 🔄 Autoformatação de CEP com máscara (ex: `12345-678`)  
-- ⚠️ Mensagens de erro mais detalhadas  
-- 🌓 Suporte a modo escuro  
-- 📱 Melhor responsividade mobile  
-
----
-
-## 🤝 Contribuindo
-
-Sinta-se à vontade para abrir uma issue, enviar sugestões ou fazer um PR. Toda ajuda é bem-vinda!
-
-```bash
-# Fork o projeto
-# Crie uma nova branch
-git checkout -b sua-melhoria
-
-# Faça alterações, commits e envie:
-git push origin sua-melhoria
-```
+- Interface gráfica com JavaFX ou Swing  
+- Validação de entrada com regex  
+- Suporte a múltiplas consultas  
+- Exportar resultado para `.txt` ou `.json`
 
 ---
 
 ## 🧑‍💻 Autor
 
-Desenvolvido com 💙 por [Eduarda Valmor](https://github.com/dudavalmor)
+Desenvolvido por [Duda Valmor](https://github.com/dudavalmor) com foco educacional e aprendizado em Java.
 
 ---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
-
-<p align="center">✨ Simples, leve e direto ao ponto ✨</p>
